@@ -1,0 +1,38 @@
+before_script:
+- mkdir -p ~/.ssh
+- echo "$SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_rsa
+- chmod 600 ~/.ssh/id_rsa
+- ssh-keyscan -H '95.217.42.202' >> ~/.ssh/known_hosts
+
+stages:
+    - deploy
+
+deploy_be:    
+    stage: deploy
+    environment:
+      name: staging
+      url: https://spaghetteria-be.samtoxie.nl/
+    only:
+        refs:
+            - staging
+        changes:
+          - "backend/**/*"  
+    script:
+        - git subtree split --prefix backend -b splitting-staging-be
+        - git push --force ssh://dokku@95.217.42.202:22/spaghetteria-be splitting-staging-be:master
+        - git branch -D splitting-staging-be
+
+deploy_fe:    
+    stage: deploy
+    environment:
+      name: staging
+      url: https://spaghetteria.samtoxie.nl/
+    only:
+        refs:
+            - staging
+        changes:
+          - "frontend/**/*"  
+    script:
+        - git subtree split --prefix frontend -b splitting-staging-fe
+        - git push --force ssh://dokku@95.217.42.202:22/spaghetteria splitting-staging-fe:master
+        - git branch -D splitting-staging-fe

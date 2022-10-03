@@ -1,0 +1,44 @@
+<div class="row">
+  <span class="col-12 col-md-4">
+<h3>Info wijzigen</h3>
+<form [formGroup]="infoForm" (ngSubmit)="updateInfo()" class="form-area">
+<!--  <div class="form-input">-->
+  <!--    <div class="label"><label for="username">Naam:</label></div>-->
+  <!--    <div class="input"><input type="text" id="username" class="w-100" formControlName="username"></div>-->
+  <!--  </div>-->
+  <div class="form-input">
+    <div class="label"><label for="role">Functie:</label></div>
+    <div class="input"><select id="role" class="w-100" form="role" formControlName="role">
+      <option value="USER">Filiaal</option>
+      <option value="ADMIN">Topmanager</option>
+    </select></div>
+  </div>
+  <div class="form-input">
+    <div class="label"><label for="enabled">Actief:</label></div>
+    <div class="input">
+      <input type="checkbox" id="enabled" name="enabled" formControlName="enabled">
+    </div>
+  </div>
+  <br/>
+  <button class="btn btn-primary float-right" type="submit">Info Wijzigen</button>
+  <br/>
+</form>
+</span>
+  <span class="col-12 col-md-8">
+  <h3>Wachtwoord wijzigen</h3>
+<form [formGroup]="passwordForm" (ngSubmit)="updatePassword()" class="form-area">
+  <div class="form-input">
+    <div class="label"><label for="password">Wachtwoord:</label></div>
+    <div class="input"><input type="password" id="password" class="w-100" formControlName="password"></div>
+  </div>
+  <div class="form-input">
+    <div class="label"><label for="password2">Bevestig:</label></div>
+    <div class="input"><input type="password" id="password2" class="w-100" formControlName="password2"></div>
+  </div>
+  <br/>
+  <button class="btn btn-primary float-right" type="submit">Wachtwoord Wijzigen</button>
+</form>
+</span>
+
+
+</div>

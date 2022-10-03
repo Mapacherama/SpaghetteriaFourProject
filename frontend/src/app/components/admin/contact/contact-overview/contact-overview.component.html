@@ -1,0 +1,9 @@
+<d-table [data]="contacts" [columns]="columns" rowsPerPage="10" actionHeading="Aanpassen">
+  <ng-template #actions let-items="items">
+    <button class="btn btn-primary" [routerLink]="'/admin/contact/add'">Nieuw</button>
+  </ng-template>
+
+  <ng-template #rowAction select="rowAction" let-item="item">
+    <a class="text-center" [routerLink]="'/admin/contact/edit/'+item.id" >Aanpassen</a>
+  </ng-template>
+</d-table>

@@ -1,0 +1,41 @@
+#navigation div {
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+}
+
+.navbar-item {
+  padding: 0;
+}
+
+a {
+  color: whitesmoke !important;
+}
+
+.topnav-right {
+  margin-left: auto;
+  cursor: pointer;
+}
+
+// Topbar
+
+#topbar {
+  height: 2.5em;
+}
+
+#topbar span {
+  color: whitesmoke;
+  font-size: 1.7em;
+  text-align: center;
+}
+
+.topbar-div div {
+  display: grid;
+}
+
+.dropdown>button:focus~.dropdown-menu {
+  display: block;
+}
+
+.dropdown-item {
+  color: #2c2c2c !important;
+}

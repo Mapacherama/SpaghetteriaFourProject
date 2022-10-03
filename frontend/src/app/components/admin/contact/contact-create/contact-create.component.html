@@ -1,0 +1,48 @@
+<form [formGroup]="contactForm" (submit)="onSubmit()">
+  <div class="form-input">
+    <div class="label">
+      <label for="companyName">Bedrijf:</label>
+    </div>
+    <div class="input">
+      <input type="text" formControlName="companyName" id="companyName" placeholder="Bedrijf...">
+    </div>
+  </div>
+  <div class="form-input">
+    <div class="label">
+      <label for="contact">Contactpersoon:</label>
+    </div>
+    <div class="input">
+      <input type="text" formControlName="contact" id="contact" placeholder="Contactpersoon...">
+    </div>
+  </div>
+  <div class="form-input">
+    <div class="label">
+      <label for="phone">Telefoonnummer:</label>
+    </div>
+    <div class="input">
+      <input type="text" formControlName="phone" id="phone" placeholder="Telefoonnummer...">
+    </div>
+  </div>
+  <div class="form-input">
+    <div class="label">
+      <label for="email">Email:</label>
+    </div>
+    <div class="input">
+      <input type="text" formControlName="email" id="email" placeholder="Email...">
+    </div>
+  </div>
+  <div class="form-input">
+    <div class="label">
+      <label for="branches">Filialen:</label>
+    </div>
+    <div class="input">
+      <ngx-select-dropdown id="branches" [formControl]="contactForm.controls['branches']" [multiple]="true" [config]="{search:true}"
+                           [options]="branches"></ngx-select-dropdown>
+    </div>
+  </div>
+  <div class="form-input">
+    <div class="input">
+      <button class="btn btn-primary float-right" type="submit">Opslaan</button>
+    </div>
+  </div>
+</form>

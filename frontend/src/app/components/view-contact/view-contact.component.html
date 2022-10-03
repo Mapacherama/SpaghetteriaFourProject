@@ -1,0 +1,11 @@
+<span class="d-none d-md-block">
+  <h2 class="text-primary text-center" id="contactHeader">Contactpersonen</h2>
+  <d-table [data]="contacts" [columns]="columns" rowsPerPage="10">
+
+  </d-table>
+</span>
+<span class="d-md-none">
+  <d-table [data]="contacts" [columns]="columns" rowsPerPage="10" [view]="'cards'">
+
+  </d-table>
+</span>

@@ -1,0 +1,54 @@
+<form [formGroup]="form" (submit)="onSubmit()">
+  <div class="form-input">
+    <div class="label">
+      <label for="productName">Naam:</label>
+    </div>
+    <div class="input">
+      <input type="text" formControlName="productName" id="productName" placeholder="Naam...">
+    </div>
+  </div>
+  <div class="form-input">
+    <div class="label">
+      <label for="description">Beschrijving:</label>
+    </div>
+    <div class="input">
+      <input type="text" formControlName="description" id="description" placeholder="Beschrijving...">
+    </div>
+  </div>
+  <div class="form-input">
+    <div class="label">
+      <label for="price">Prijs:</label>
+    </div>
+    <div class="input">
+      <input type="text" formControlName="price" id="price" placeholder="Prijs...">
+    </div>
+  </div>
+  <div class="form-input">
+    <div class="label">
+      <label for="type">Type:</label>
+    </div>
+    <div class="input">
+      <select formControlName="type" id="type">
+        <option value="Vlees">Vlees</option>
+        <option value="Vis">Vis</option>
+        <option value="Vegetarisch">Vegetarisch</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-input">
+    <div class="label">
+      <label for="disabled">Uitgeschakeld:</label>
+    </div>
+    <div class="input">
+      <input type="checkbox" formControlName="disabled" id="disabled" placeholder="Uitgeschakeld...">
+    </div>
+  </div>
+  <div class="form-input">
+    <div class="label">
+      <button class="btn btn-secondary float-left" (click)="removeDish()" type="button">Verwijderen</button>
+    </div>
+    <div class="input">
+      <button class="btn btn-primary float-right" type="submit">Opslaan</button>
+    </div>
+  </div>
+</form>

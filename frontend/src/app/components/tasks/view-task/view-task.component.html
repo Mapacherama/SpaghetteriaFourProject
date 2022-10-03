@@ -1,0 +1,68 @@
+<section class="" id="tasks" *ngIf="taskForm">
+  <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-10 task-info">
+      <span>
+        <h4 class="title">{{ task.name }} <span class="material-icons-outlined c-pointer" *ngIf="isAdmin" [routerLink]="'/taak/bewerken/'+taskId">edit</span></h4>
+        <p class="description">{{ task.description }}</p>
+        <p class="subtitle">Deadline: {{ task.deadline | date: 'dd/MM/yyyy HH:mm'}}</p>
+        <p class="subtitle">Laatste bewerking: {{ submission.lastEdit | date: 'dd/MM/yyyy HH:mm'}}</p>
+      </span>
+      </div>
+      <div *ngIf="submitted" class="col-2 submission">
+
+      </div>
+      <div *ngIf="!submitted" class="col-2 submission">
+          <div *ngIf="isFinished; else elseBlock" class="submission"><span class="material-icons submit-button c-pointer" (click)="onSubmit()">done</span></div>
+          <ng-template #elseBlock><span class="material-icons submit-button text-secondary">done</span></ng-template>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4 task-action" *ngFor="let question of task.questions; let i = index"
+           [ngSwitch]="question.type">
+        <p class="action-title">{{question.name}}</p>
+
+        <div class="picture-action" *ngSwitchCase="'photo'">
+          <div class="picture-text">
+            <div *ngIf="this.submission.answers[i] === null; else elseBlock">Maak een foto...</div>
+            <ng-template #elseBlock><img [src]="getUrl(i)" alt="Photo..." id="photo{{i}}"/></ng-template>
+          </div>
+          <div class="picture-button">
+            <span class="material-icons c-pointer" (click)="pressclick(i)" *ngIf="!submitted">camera_alt</span>
+            <input id="{{i}}" type="file" accept="image/jpeg" (change)="onImageChange($event, i)"
+                   style="display:none;"/>
+          </div>
+        </div>
+
+        <div class="picture-action" *ngSwitchCase="'file'">
+          <div class="picture-text">
+            <div *ngIf="this.submission.answers[i] === null; else elseBlock">Upload een bestand...</div>
+            <ng-template #elseBlock><a [href]="getFileUrl(i)" id="file{{i}}">Bestand downloaden...</a></ng-template>
+          </div>
+          <div class="picture-button">
+            <span class="material-icons-outlined c-pointer" (click)="pressclick(i)" *ngIf="!submitted">backup</span>
+            <input id="{{i}}" type="file" (change)="onFileChange($event, i)"
+                   style="display:none;"/>
+          </div>
+        </div>
+
+        <div class="choice-action" *ngSwitchCase="'choices'">
+          <select (change)="onChange($event, i)" id="{{i}}" formControlName="{{i}}"
+                  [(ngModel)]="this.taskForm.get(i.toString()).value">
+                      <option hidden disabled selected [value]="''"> -- Kies een optie --</option>
+            <option *ngFor="let option of question.options" [value]="option.toString()">{{option}}</option>
+          </select>
+        </div>
+
+        <div class="text-action" *ngSwitchCase="'textfield'">
+          <input (change)="onChange($event, i)" id="{{i}}" formControlName="{{i}}"
+                 placeholder="Vul hier het antwoord in..." >
+        </div>
+      </div>
+      <!--    <div class="col-sm-12 col-md-6 col-lg-4 task-action">-->
+      <!--      <p class="action-title">Opmerkingen:</p>-->
+      <!--      <div class="text-action">-->
+      <!--        <textarea placeholder="Hier kun je eventueel een opmerking achterlaten..."></textarea>-->
+      <!--      </div>-->
+      <!--    </div>-->
+    </div>
+  </form>
+</section>

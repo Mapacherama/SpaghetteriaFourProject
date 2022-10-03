@@ -1,0 +1,24 @@
+<form [formGroup]="branchForm" (ngSubmit)="setBranch()" class="form-area">
+  <div class="form-item">
+          <span>
+            <label for="branch"><h2>Selecteer filiaal</h2></label>
+          </span>
+  </div>
+  <div class="form-item">
+          <span>
+            <p class="text-box">Kies hier als welk filiaal je de applicatie wilt gaan gebruiken.</p>
+          </span>
+  </div>
+  <div class="form-item">
+          <span>
+        <select name="branch" id="branch" class="form-control" formControlName="branch">
+          <option *ngFor="let branch of branches;" value="{{branch.username}}">{{branch.username}}</option>
+        </select>
+          </span>
+  </div>
+  <div class="form-item">
+          <span>
+            <button class="btn btn-light text-primary" type="submit">Selecteren</button>
+          </span>
+  </div>
+</form>

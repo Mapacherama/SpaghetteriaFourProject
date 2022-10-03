@@ -1,0 +1,34 @@
+.form-area {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: whitesmoke;
+  font-size: 1.2em;
+  line-height: 2em;
+
+}
+.form-item {
+  flex:1;
+  display: grid;
+  width: 100%;
+}
+
+.form-item span {
+  margin: auto;
+  width: 90%;
+}
+
+.form-item span input {
+  width: 100%;
+}
+
+.form-item span button {
+  width: 50%;
+}
+
+.text-box {
+  line-height: 1.2;
+}

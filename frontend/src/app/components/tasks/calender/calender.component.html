@@ -1,0 +1,107 @@
+<div class="row text-center controls text-primary">
+  <div class="col-4">
+    <span class="material-icons h1 c-pointer user-select-none" (click)="updateWeek(-1)">keyboard_arrow_left</span>
+  </div>
+  <div class="col-4 week"><span class="h3">Week: {{week}}</span></div>
+  <div class="col-4">
+    <span class="material-icons h1 c-pointer user-select-none" (click)="updateWeek(1)">keyboard_arrow_right</span>
+  </div>
+</div>
+<div class="row" *ngIf="getTasksOnDay(1).length !== 0">
+  <div class="col-12 text-center controls"><span class="h3">{{getDate(0)}}</span></div>
+  <div class="task-item col-sm-12 col-md-6 col-lg-4 c-pointer" *ngFor="let task of getTasksOnDay(1);"
+       routerLink="/taak/{{task._id}}">
+    <div class="status task-icon-{{getTaskColor(task)}}">
+      <span class="material-icons">{{getStatus(task)}}</span>
+    </div>
+    <div class="info">
+      <text class="task-title">{{ task.name }}</text>
+      <br>
+      <text class="task-deadline">{{ task.deadline | date: 'dd/MM/yyyy - HH:mm'}}</text>
+    </div>
+  </div>
+</div>
+<div class="row" *ngIf="getTasksOnDay(2).length !== 0">
+  <div class="col-12 text-center controls"><span class="h3">{{getDate(1)}}</span></div>
+  <div class="task-item col-sm-12 col-md-6 col-lg-4 c-pointer" *ngFor="let task of getTasksOnDay(2);"
+       routerLink="/taak/{{task._id}}">
+    <div class="status task-icon-{{getTaskColor(task)}}">
+      <span class="material-icons">{{getStatus(task)}}</span>
+    </div>
+    <div class="info">
+      <text class="task-title">{{ task.name }}</text>
+      <br>
+      <text class="task-deadline">{{ task.deadline | date: 'dd/MM/yyyy - HH:mm'}}</text>
+    </div>
+  </div>
+</div>
+<div class="row" *ngIf="getTasksOnDay(3).length !== 0">
+  <div class="col-12 text-center controls"><span class="h3">{{getDate(2)}}</span></div>
+  <div class="task-item col-sm-12 col-md-6 col-lg-4 c-pointer" *ngFor="let task of getTasksOnDay(3);"
+       routerLink="/taak/{{task._id}}">
+    <div class="status task-icon-{{getTaskColor(task)}}">
+      <span class="material-icons">{{getStatus(task)}}</span>
+    </div>
+    <div class="info">
+      <text class="task-title">{{ task.name }}</text>
+      <br>
+      <text class="task-deadline">{{ task.deadline | date: 'dd/MM/yyyy - HH:mm'}}</text>
+    </div>
+  </div>
+</div>
+<div class="row" *ngIf="getTasksOnDay(4).length !== 0">
+  <div class="col-12 text-center controls"><span class="h3">{{getDate(3)}}</span></div>
+  <div class="task-item col-sm-12 col-md-6 col-lg-4 c-pointer" *ngFor="let task of getTasksOnDay(4);"
+       routerLink="/taak/{{task._id}}">
+    <div class="status task-icon-{{getTaskColor(task)}}">
+      <span class="material-icons">{{getStatus(task)}}</span>
+    </div>
+    <div class="info">
+      <text class="task-title">{{ task.name }}</text>
+      <br>
+      <text class="task-deadline">{{ task.deadline | date: 'dd/MM/yyyy - HH:mm'}}</text>
+    </div>
+  </div>
+</div>
+<div class="row" *ngIf="getTasksOnDay(5).length !== 0">
+  <div class="col-12 text-center controls"><span class="h3">{{getDate(4)}}</span></div>
+  <div class="task-item col-sm-12 col-md-6 col-lg-4 c-pointer" *ngFor="let task of getTasksOnDay(5);"
+       routerLink="/taak/{{task._id}}">
+    <div class="status task-icon-{{getTaskColor(task)}}">
+      <span class="material-icons">{{getStatus(task)}}</span>
+    </div>
+    <div class="info">
+      <text class="task-title">{{ task.name }}</text>
+      <br>
+      <text class="task-deadline">{{ task.deadline | date: 'dd/MM/yyyy - HH:mm'}}</text>
+    </div>
+  </div>
+</div>
+<div class="row" *ngIf="getTasksOnDay(6).length !== 0">
+  <div class="col-12 text-center controls"><span class="h3">{{getDate(5)}}</span></div>
+  <div class="task-item col-sm-12 col-md-6 col-lg-4 c-pointer" *ngFor="let task of getTasksOnDay(6);"
+       routerLink="/taak/{{task._id}}">
+    <div class="status task-icon-{{getTaskColor(task)}}">
+      <span class="material-icons">{{getStatus(task)}}</span>
+    </div>
+    <div class="info">
+      <text class="task-title">{{ task.name }}</text>
+      <br>
+      <text class="task-deadline">{{ task.deadline | date: 'dd/MM/yyyy - HH:mm'}}</text>
+    </div>
+  </div>
+</div>
+<div class="row" *ngIf="getTasksOnDay(0).length !== 0">
+  <div class="col-12 text-center controls"><span class="h3">{{getDate(6)}}</span></div>
+  <div class="task-item col-sm-12 col-md-6 col-lg-4 c-pointer" *ngFor="let task of getTasksOnDay(0);"
+       routerLink="/taak/{{task._id}}">
+    <div class="status task-icon-{{getTaskColor(task)}}">
+      <span class="material-icons">{{getStatus(task)}}</span>
+    </div>
+    <div class="info">
+      <text class="task-title">{{ task.name }}</text>
+      <br>
+      <text class="task-deadline">{{ task.deadline | date: 'dd/MM/yyyy - HH:mm'}}</text>
+    </div>
+  </div>
+</div>

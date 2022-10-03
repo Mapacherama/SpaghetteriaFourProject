@@ -1,0 +1,61 @@
+<form [formGroup]="form" (submit)="onSubmit()">
+  <div class="form-input">
+    <div class="label">
+      <label for="topic">Onderwerp:</label>
+    </div>
+    <div class="input">
+      <input type="text" formControlName="topic" id="topic" placeholder="Onderwerp...">
+    </div>
+  </div>
+  <div class="form-input">
+    <div class="label">
+      <label for="description">Beschrijving:</label>
+    </div>
+    <div class="input">
+      <input type="text" formControlName="description" id="description" placeholder="Beschrijving...">
+    </div>
+  </div>
+  <div class="form-input">
+    <div class="label">
+      <label for="startDate">Van:</label>
+    </div>
+    <div class="input">
+      <input formControlName="startDate" id="startDate" [owlDateTime]="dt1" [owlDateTimeTrigger]="dt1" placeholder="Van...">
+      <owl-date-time #dt1></owl-date-time>
+    </div>
+  </div>
+  <div class="form-input">
+    <div class="label">
+      <label for="endDate">Tot:</label>
+    </div>
+    <div class="input">
+      <input formControlName="endDate" id="endDate" [owlDateTime]="dt2" [owlDateTimeTrigger]="dt2"
+             [min]="this.form.get('startDate').value" placeholder="Tot...">
+      <owl-date-time #dt2></owl-date-time>
+    </div>
+  </div>
+  <div class="form-input">
+    <div class="label">
+      <label for="branches">Filialen:</label>
+    </div>
+    <div class="input">
+      <ngx-select-dropdown id="branches" [formControl]="form.controls['branches']" [multiple]="true" [config]="{search:true}"
+                           [options]="branches"></ngx-select-dropdown>
+    </div>
+  </div>
+ <!-- <div class="form-input">
+    <div class="label">
+      <label for="disabled">Uitgeschakeld:</label>
+    </div>
+    <div class="input">
+      <input type="checkbox" formControlName="disabled" id="disabled" placeholder="Uitgeschakeld...">
+    </div>
+  </div>-->
+  <div class="form-input">
+    <div class="label"></div>
+    <div class="input">
+      <button class="btn btn-primary float-right" type="submit">Opslaan</button>
+    </div>
+  </div>
+</form>
+

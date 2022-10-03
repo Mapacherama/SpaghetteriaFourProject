@@ -1,0 +1,10 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "tasks reports";
+}
+.tasks { grid-area: tasks; }
+.reports { grid-area: reports; }

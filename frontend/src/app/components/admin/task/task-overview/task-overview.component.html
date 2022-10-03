@@ -1,0 +1,22 @@
+<div class="col-12 text-center"><h1 class="text-primary">Overzicht van taken</h1></div>
+<d-table [data]="tasks" [columns]="columnsTasks" rowsPerPage="10" actionHeading="Aanpassen">
+  <ng-template #actions let-items="items">
+    <button class="btn btn-primary" [routerLink]="'/taak/aanmaken'">Nieuw</button>
+  </ng-template>
+
+  <ng-template #rowAction select="rowAction" let-item="item">
+    <a class="text-center" [routerLink]="'/taak/bewerken/'+item._id" >Aanpassen</a>
+  </ng-template>
+</d-table>
+<div class="col-12 text-center"><h1 class="text-primary">Overzicht van Terugkerende taken</h1></div>
+<d-table [data]="recurringTasks" [columns]="columnsRecurringTasks" rowsPerPage="10" actionHeading="Aanpassen">
+  <ng-template #actions let-items="items">
+    <button class="btn btn-primary" [routerLink]="'/taak/aanmaken/recurring'">Nieuw</button>
+  </ng-template>
+
+  <ng-template #rowAction select="rowAction" let-item="item">
+    <a class="text-center" [routerLink]="'/admin/recurringtask/edit/'+item._id" >Aanpassen</a>
+  </ng-template>
+</d-table>
+
+

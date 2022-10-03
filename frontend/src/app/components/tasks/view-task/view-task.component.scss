@@ -1,0 +1,98 @@
+.container{
+  background: whitesmoke;
+}
+
+.task-info {
+  background-color: #ececec;
+  padding-top: 0.5em;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.title {
+  font-size: 1.5em;
+  font-weight: 500;
+  line-height: 1;
+
+}
+
+.description {
+  color: #2c2c2c;
+  line-height: 1;
+
+}
+
+.subtitle {
+  color: #2c2c2c;
+  line-height: 1;
+}
+
+.task-action {
+  padding-top: 0.2em;
+  padding-bottom:0.5em;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.action-title {
+  font-size: 1.1em;
+  font-weight: 500;
+  margin-bottom: 0;
+}
+
+.picture-action {
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 1px 1px;
+  grid-template-areas:
+        "text button";
+}
+
+.picture-text {
+  grid-area: text;
+}
+
+.picture-text img {
+  width: 100%;
+}
+
+.picture-button {
+  grid-area: button;
+  text-align: right;
+}
+
+.picture-button span {
+  grid-area: button;
+  font-size: 2em;
+}
+
+.text-action {
+  padding-top: 0.2em;
+}
+
+.text-action input {
+  width: 100%;
+}
+
+.text-action textarea {
+  width: 100%;
+}
+
+.choice-action {
+  padding-top: 0.2em;
+}
+
+.choice-action select {
+  width: 100%;
+}
+
+.submission {
+  display: grid;
+  background-color: #ececec;
+  padding:0 !important;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.submit-button {
+  margin: auto;
+  font-size: 3em;
+}

@@ -1,0 +1,127 @@
+<div class="main-container">
+  <h1 class="text-primary text-center">Taak Aanpassen</h1>
+  <hr/>
+  <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+    <div class="task-form">
+      <div class="name_deadline">
+        <div class="form-input">
+          <div class="label">
+            <label for="name">Naam:</label>
+          </div>
+          <div class="input">
+            <input type="text" formControlName="name" id="name" placeholder="Naam...">
+          </div>
+        </div>
+        <br/>
+        <div class="form-input">
+          <div class="label">
+            <label for="startDate">Van:</label>
+          </div>
+          <div class="input">
+            <input formControlName="startDate" id="startDate" [owlDateTime]="dt1" [owlDateTimeTrigger]="dt1" placeholder="Van...">
+            <owl-date-time #dt1></owl-date-time>
+          </div>
+        </div>
+        <br/>
+        <div class="form-input">
+          <div class="label">
+            <label for="endDate">Tot:</label>
+          </div>
+          <div class="input">
+            <input formControlName="endDate" id="endDate" [owlDateTime]="dt2" [owlDateTimeTrigger]="dt2"
+                   [min]="this.taskForm.get('startDate').value" placeholder="Tot...">
+            <owl-date-time #dt2 [pickerType]="'calendar'"></owl-date-time>
+          </div>
+        </div>
+        <br/>
+        <div class="form-input">
+          <div class="label">
+            <label for="endDate">Herhaal elke:</label>
+          </div>
+          <div class="input">
+            <input type="number" min="1" class="w-25" formControlName="intervalAmount" />
+            <select formControlName="intervalUnit">
+              <option value="DAYS">Dagen</option>
+              <option value="WEEKS">Weken</option>
+              <option value="MONTHS">Maanden</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="description">
+        <div class="form-input">
+          <div class="label">
+            <label for="assignees">Deelnemers:</label>
+          </div>
+          <div class="input">
+            <ngx-select-dropdown id="assignees" formControlName="assignees" [multiple]="true" [config]="{search:true}"
+                                 [options]="branches" [disabled]="!isAdmin"></ngx-select-dropdown>
+          </div>
+        </div>
+        <br />
+        <div class="form-input">
+          <div class="label">
+            <label for="description">Beschrijving:</label>
+          </div>
+          <div class="input">
+            <textarea formControlName="description" id="description"
+                      placeholder="Beschrijving van de taak..."></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="buttons row">
+        <div class="col-6">
+          <button type="submit" class="btn btn-primary w-100">Opslaan</button>
+        </div>
+        <div class="col-6">
+          <a class="btn btn-outline-primary w-100" (click)="resetForm()">Reset</a>
+        </div>
+        <div class="col-12"><a (click)="addQuestion('', 'textfield', null)" class="btn btn-secondary w-100">Nieuwe Vraag</a>
+        </div>
+        <!--        <div class="col-12"><a (click)="addQuestion('photo')" class="btn btn-secondary w-100">Nieuwe Foto Vraag</a>-->
+        <!--        </div>-->
+        <!--                <div class="col-12"><a (click)="addQuestion('choices')" class="btn btn-secondary w-100">Nieuwe Meerkeuze Vraag</a></div>-->
+      </div>
+      <div class="questions row">
+        <div class="col-xs-12 col-md-6 col-lg-4 question" formArrayName="questions"
+             *ngFor="let item of taskForm.get('questions')['controls']; let i = index;">
+          <div [formGroupName]="i">
+            <h3 class="text-primary">Opdracht: {{(i+1)}}</h3>
+            <div class="form-input">
+              <div class="label">
+                <label for="deadline">Vraag:</label>
+              </div>
+              <div class="input">
+                <input type="text" formControlName="name">
+              </div>
+            </div>
+            <br />
+            <div class="form-input">
+              <div class="label">
+                <label for="deadline">Type:</label>
+              </div>
+              <div class="input">
+                <select formControlName="type" class="custom-select">
+                  <option [value]="'textfield'">Open vraag</option>
+                  <option [value]="'photo'">Foto</option>
+                  <option [value]="'choices'">Meerkeuze</option>
+                  <option [value]="'file'">Bestand</option>
+                </select>
+              </div>
+            </div>
+            <br />
+            <div class="form-input" *ngIf="item.value.type==='choices'">
+              <div class="label">
+                <label for="deadline">Opties:</label>
+              </div>
+              <div class="input">
+                <input type="text" formControlName="options" placeholder="Scheid de opties met een ';'">
+              </div>
+            </div>
+            <br *ngIf="item.value.type==='choices'" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,24 @@
+<div  class="d-none d-md-block">
+  <div *ngIf="isAdmin">
+    <h2 class="text-primary text-center">Overzicht Alle Filialen</h2>
+    <app-admin-home></app-admin-home>
+    <hr>
+  </div>
+  <h2 class="text-primary text-center">Berichten</h2>
+  <app-announcement></app-announcement>
+  <hr>
+</div>
+<h2 class="text-primary text-center">Openstaande Taken<span *ngIf="isAdmin"> voor {{branch}}</span></h2>
+<div class="row">
+  <div class="task-item col-sm-12 col-md-6 col-lg-4 c-pointer" *ngFor="let task of tasks;"
+       routerLink="../taak/{{task._id}}">
+    <div class="status task-icon-{{getTaskColor(task.deadline)}}">
+      <span class="material-icons">{{getStatus(task.deadline)}}</span>
+    </div>
+    <div class="info">
+      <text class="task-title">{{ task.name }}</text>
+      <br>
+      <text class="task-deadline">{{ task.deadline | date: 'dd/MM/yyyy - HH:mm'}}</text>
+    </div>
+  </div>
+</div>

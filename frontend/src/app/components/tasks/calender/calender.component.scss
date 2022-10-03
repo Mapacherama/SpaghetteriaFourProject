@@ -1,0 +1,57 @@
+.controls {
+  background-color: #ececec;
+  padding-top: 0.5em;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.task-item {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 1fr;
+  gap: 1px 1px;
+  grid-template-areas:
+        "status info";
+  padding: 0.7em 0;
+  //border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+  border-right: 1px solid #e0e0e0;
+}
+
+.status {
+  grid-area: status;
+  display: grid;
+}
+
+.status span {
+  font-size: 3em;
+  margin: auto;
+}
+
+.info {
+  grid-area: info;
+}
+
+.task-title {
+  font-size: 1.2em;
+  font-weight: 500;
+}
+
+.task-deadline {
+
+}
+
+.task-icon-green {
+  color: var(--success);
+}
+
+.task-icon-gray {
+  color: var(--secondary);
+}
+
+.week {
+  display: grid;
+}
+
+.week span {
+  margin: auto;
+}

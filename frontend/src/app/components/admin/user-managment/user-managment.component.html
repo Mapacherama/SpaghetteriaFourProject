@@ -1,0 +1,9 @@
+<d-table [data]="users" [columns]="columns" rowsPerPage="10" actionHeading="Aanpassen">
+  <ng-template #actions let-items="items">
+    <button class="btn btn-primary" [routerLink]="'/admin/user/add'">Nieuw</button>
+  </ng-template>
+
+  <ng-template title="Aanpassen" #rowAction select="rowAction" let-item="item">
+    <a class="text-center" [routerLink]="'/admin/user/edit/'+item.username">Aanpassen</a>
+  </ng-template>
+</d-table>

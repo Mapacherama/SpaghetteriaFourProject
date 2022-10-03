@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-12 text-center"><h1 class="text-primary">Beheerderspaneel - Spaghetteria</h1></div>
+  <div class="col-md-6">
+    <p>
+      Welkom op het beheerderspaneel! Dit paneel is alleen toegankelijk voor topmanagers en biedt toegang tot
+      functionaliteiten zoals het aanmaken, bewerken en deactiveren van accounts. Ook kunnen hier op filiaalniveau
+      contacten en orders worden toegevoegd of aangepast.
+    </p>
+    <p>
+      Bij vragen kun je contact opnemen met de applicatiebeheerder.
+    </p>
+  </div>
+  <div class="col-md-6">
+    <p>We trust you have received the usual lecture from the local System
+      Administrator. It usually boils down to these three things:
+    </p>
+    <ol>
+      <li>Respect the privacy of others.</li>
+      <li>Think before you type.</li>
+      <li>With great power comes great responsibility.</li>
+    </ol>
+  </div>
+</div>
+<hr/>
+<div class="btn-group w-100" role="group" aria-label="Basic example">
+  <button type="button" class="btn" [ngClass]="selectedTab == 0 ? 'btn-primary' : 'btn-outline-primary'" (click)="selectedTab = 0">Gebruikers</button>
+  <button type="button" class="btn" [ngClass]="selectedTab == 1 ? 'btn-primary' : 'btn-outline-primary'" (click)="selectedTab = 1">Gerechten</button>
+  <button type="button" class="btn" [ngClass]="selectedTab == 2 ? 'btn-primary' : 'btn-outline-primary'" (click)="selectedTab = 2">Contact</button>
+  <button type="button" class="btn" [ngClass]="selectedTab == 3 ? 'btn-primary' : 'btn-outline-primary'" (click)="selectedTab = 3">Aankondiging</button>
+  <button type="button" class="btn" [ngClass]="selectedTab == 4 ? 'btn-primary' : 'btn-outline-primary'" (click)="selectedTab = 4">Taken</button>
+</div>
+<app-user-managment *ngIf="selectedTab === 0"></app-user-managment>
+<app-dish-overview *ngIf="selectedTab === 1"></app-dish-overview>
+<app-contact-overview *ngIf="selectedTab === 2"></app-contact-overview>
+<app-announcement-overview *ngIf="selectedTab === 3"></app-announcement-overview>
+<app-task-overview *ngIf="selectedTab === 4"></app-task-overview>
+
+

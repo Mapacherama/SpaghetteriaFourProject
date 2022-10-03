@@ -1,0 +1,6 @@
+<d-table [data]="this.branches" [columns]="columns" rowsPerPage="10" [enableFilter]="false" actionHeading="Actie">
+
+  <ng-template #rowAction select="rowAction" let-item="item">
+    <a class="text-center" [routerLink]="viewReport(item.branch)" >Bekijken</a>
+  </ng-template>
+</d-table>
